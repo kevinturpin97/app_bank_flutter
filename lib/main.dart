@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'caroussel.dart';
+import 'dashboard.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.white,
         body: MyBody(),
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(200.0),
@@ -59,51 +62,56 @@ class MyAppBar extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              margin: const EdgeInsets.only(
-                left: 40,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Welcome Back,",
-                    style: TextStyle(
-                      fontSize: 25,
-                      color: Colors.white,
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                margin: const EdgeInsets.only(left: 40),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Welcome Back,",
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                  Text(
-                    name,
-                    style: const TextStyle(
-                      color: Colors.white,
-                    ),
-                  )
-                ],
+                    Text(
+                      name,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(
-                left: (MediaQuery.of(context).size.width / 2) + 40,
-                bottom: 10,               
+            Align(
+              alignment: Alignment.centerRight,
+              child: Container(
+                margin: const EdgeInsets.only(
+                  left: 40,
+                  bottom: 10,               
+                  ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    const Text(
+                      "Your balance",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      monney,
+                      style: const TextStyle(
+                        fontSize: 25,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
                 ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  const Text(
-                    "Your balance",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                  Text(
-                    monney,
-                    style: const TextStyle(
-                      fontSize: 25,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
               ),
             ),
           ],
@@ -119,39 +127,23 @@ class MyBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(top: 30, left: 10),
       color: Colors.white,
       width: MediaQuery.of(context).size.width,
-      child: Column(
-        children: [
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                Container(
-                  width: 150,
-                  height: 50,
-                  color: Colors.blue,
-                ),
-                Container(
-                  width: 150,
-                  height: 50,
-                  color: Colors.red,
-                ),
-                Container(
-                  width: 150,
-                  height: 50,
-                  color: Colors.blue,
-                ),
-                Container(
-                  width: 150,
-                  height: 50,
-                  color: Colors.red,
-                ),
-              ],
-            ),
-          ),
-          
-        ],
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: const [
+            Caroussel(),
+            ThisMonth(),
+            ThisMonth(),
+            ThisMonth(),
+            ThisMonth(),
+            ThisMonth(),
+            ThisMonth(),
+            ThisMonth(),
+          ],
+        ),
       ),
     );
   }
