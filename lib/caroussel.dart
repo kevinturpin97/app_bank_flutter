@@ -5,12 +5,11 @@ class Caroussel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     var transaction = "\$1400";
     var expenses = "\$400";
     var transfert = "\$100";
     var average = "\$250";
-    
+
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(

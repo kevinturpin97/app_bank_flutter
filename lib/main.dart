@@ -52,11 +52,10 @@ class MyBody extends StatelessWidget {
 
 class MyBottomBar extends StatelessWidget {
   const MyBottomBar({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
-
-  //  var mygrey = 0xFF9E9E9E;
+    //  var mygrey = 0xFF9E9E9E;
 
     return BottomAppBar(
       child: Container(
@@ -69,28 +68,28 @@ class MyBottomBar extends StatelessWidget {
               icon: const Icon(
                 Icons.dashboard,
                 color: Color(0xff7428dd),
-                ),
+              ),
             ),
             IconButton(
               onPressed: () {},
               icon: const Icon(
                 Icons.notifications,
                 color: Colors.grey,
-                ),
+              ),
             ),
             IconButton(
               onPressed: () {},
               icon: const Icon(
                 Icons.explore,
                 color: Colors.grey,
-                ),
+              ),
             ),
             IconButton(
               onPressed: () {},
               icon: const Icon(
                 Icons.settings,
                 color: Colors.grey,
-                ),
+              ),
             ),
           ],
         ),
